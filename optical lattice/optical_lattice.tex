@@ -1,0 +1,207 @@
+%导言区
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{ctex}
+
+\title{Fluoquet engineering with quasienergy bands of perodically driven optical lattices}
+\author{Hu}
+\date{\today}
+
+
+
+%正文区
+\begin{document}
+	\maketitle
+	 Preliminaries:band structure of 1D cosine lattice:
+	
+	一维光晶格中系统的哈密顿量：
+	\begin{equation}
+		H(x)=\frac{\hbar^2}{2M}\frac{d^2}{dx^2}+\frac{V_0}{2}\cos(2k_Lx) \label{eq:1}
+	\end{equation}
+	
+	$V_0$：势阱深度，可以通过激光光强和频率等调节
+	
+	$k_L$：激光波矢
+	
+	$\cos$形式：一对激光束对向传播所形成的驻波
+	
+	将公式\ref{eq:1}带入定态薛定谔方程：
+	\begin{equation}
+		H(x)\varphi(x)=E\varphi(x) \label{eq:2}
+	\end{equation}
+	可以得到：
+	\begin{equation}
+		\bigg(\frac{\hbar^2k_L^2}{2M}\frac{d^2}{dz^2}+\frac{V_0}{2}\cos(2z)-E\bigg)\varphi(z)=0  \label{eq:3}
+	\end{equation}
+	$z=k_Lx$：将$z$变为无量纲数，并简化$\varphi(z)$的形式
+	
+	将公式\ref{eq:3}中的系数定义为：
+	\begin{equation}
+		E_R=\frac{\hbar^2k_L^2}{2M} \label{eq:4}
+	\end{equation}
+	$E_R$：反冲能，最初静止的原子吸收一个光子后所具有的动能，系统中的能量一般以反冲能计量
+	
+	化简可得：
+	\begin{equation}
+		\bigg(\frac{d^2}{dz^2}+\frac{E}{E_R}-2\frac{V_0}{4E_R}\cos(2z)\bigg)\varphi(z)=0 \label{eq:5}
+	\end{equation}
+	公式\ref{eq:5}是Mathieu equation的标准形式：
+	\begin{equation}
+		\varphi^{\prime\prime}(z)+[\alpha-2q\cos(2z)]\varphi(z)=0 \label{eq:6}
+	\end{equation}
+	其中:
+	\begin{equation}
+		\alpha=\frac{E}{E_R} \label{eq:7}
+	\end{equation}
+	\begin{equation}
+		q=\frac{V_0}{4E_R} \label{eq:8}
+	\end{equation}
+	根据布洛赫定理（若势场具有周期性，则波函数为平面波与周期函数相乘），可得到公式\ref{eq:2}的解:
+	\begin{equation}
+		\varphi_k(x)=e^{ikx}u_k(x) \label{eq:9}
+	\end{equation}
+	其中$u_k$与势场的周期相同,即：
+	\begin{equation}
+		u_k(x)=u_k(x+\pi/k_L) \label{eq:10}
+	\end{equation}	
+	当$k/k_L=0$时，$\varphi(z)=\varphi(z+\pi)$，周期为$\pi$；当$k/k_L=\pm1$时，$\varphi(z)=-\varphi(z+\pi)$，周期为$2\pi$。
+	而公式\ref{eq:6}在给定Mathieu equation系数$q$（即给定晶格深度）时，只有在$\alpha$满足特定离散值时才能得到周期解。当特征值为$a_r(q)$时为偶Mathieu equation，周期对应为$\pi$;当特征值为$b_r(q)$时为奇Mathieu equation，周期对应为$2\pi$。
+	
+	根据公式\ref{eq:7}，可得：
+	\begin{equation}
+		E_n^{lower}=a_n(q)E_R \label{eq:11}
+	\end{equation}
+	\begin{equation}
+		E_n^{upper}=b_n(q)E_R
+	\end{equation}
+	
+	将布洛赫函数公式\ref{eq:9}带入本征值方程\ref{eq:2}，并利用动量算符：
+	\begin{equation}
+		p=\frac{\hbar}{i}\frac{d}{dx} \label{eq:13}
+	\end{equation}
+	可得到：
+	\begin{equation}
+		\bigg(\frac{p^2}{2M}+\frac{V_0}{2}\cos(2k_Lx)\bigg)e^{ikx}u_k(x)=E(k)e^{ikx}u_k(x)  \label{eq:14}
+	\end{equation}
+	将公式\ref{eq:14}两边同时乘$e^{-ikx}$，并利用：
+	\begin{align}
+		e^{-ikx}pe^{ikx} &=p-ik[x,p] \notag \\
+		&=p+\hbar k \label{eq:15}
+	\end{align}	
+	最终得到：
+	\begin{equation}
+		\bigg(\frac{(p+\hbar k)^2}{2M}+\frac{V_0}{2}\cos(2k_Lx)\bigg)u_k(x)=E(k)u_k(x) \label{eq:16}
+	\end{equation}
+	打开动量算符：
+	\begin{equation}
+		\bigg(\frac{p^2}{2M}+\frac{\hbar k\cdot p}{M}+\frac{\hbar^2k^2}{2M}+\frac{V_0}{2}\cos(2k_Lx)\bigg)u_k(x)=E(k)u_k(x) \label{eq:17}
+	\end{equation}
+	再将$z=k_Lx$带入方程，并同时除以$E_R$,可以得到：
+	\begin{equation}
+		\bigg(-\frac{d^2}{dz^2}+2\frac{k}{k_L}\frac{1}{i}\frac{d}{dz}+{\bigg(\frac{k}{k_L}\bigg)}^2+\frac{V_0}{k_L}\cos(2z)\bigg)u_k(z)=\frac{E(k)}{E_R}u_k(z) \label{eq:18}
+	\end{equation}
+	
+	
+	Tools:basic elements of the Folquet pictures
+	
+	考虑希尔伯特空间中一个量子系统的哈密顿量是时间周期的，即具有下列形式：
+	\begin{equation}
+		H(t)=h(t + T) \label{eq:19}
+	\end{equation}
+	我们的目标是解决含时薛定谔方程：
+	\begin{equation}
+		i\hbar\frac{d}{dt}U(t,0)\vert\psi(t)\rangle=H(t)\vert\psi(t)\rangle \label{eq:20}
+	\end{equation}
+	为了能够得到最一般的通解，首先构造一个单位时间演化算符$U(t,0)$来完成任何初始条件$\vert\psi(0)\rangle$在时间尺度上的传播:
+	\begin{equation}
+		\vert\psi(t)\rangle=U(t,0)\vert\psi(0)\rangle \label{eq:21}
+	\end{equation}
+	将时间演化算符带入含时薛定谔方程，可以得到算符本身也遵从薛定谔方程的形式：
+	\begin{equation}
+		i\hbar\frac{d}{dt}U(t,0)=H(t)U(t,0) \label{22}
+	\end{equation}
+	时间演化算符的初始条件为：
+	\begin{equation}
+		U(0,0) = id
+	\end{equation}
+	其中$id$是希尔伯特空间的单位算符。对于任意一个哈密顿量$H(t)$的时间演化算符明显满足半群属性，即：
+	\begin{equation}
+		U(t_1+t_2,0)=U(t_1+t_2,t_1 )U(t_1,0)
+	\end{equation}
+	实际上，对于有时间周期T的哈密顿量来说，它还具有更特殊的性质：
+	\begin{equation}
+		U(t+T,0)=U(t,0)U(T,0)
+	\end{equation}
+	这就说明，如果已知$0\le t\le T$之间的$U(t,0)$，就可以通过其构建出任何$t\le0$的$U(t,0)$。其证明大致如下：
+	
+	首先引入复合算符:
+	\begin{equation}
+		V(t):=U(t+T,0) U^{-1} (T,0)
+	\end{equation}
+	显然:
+	\begin{equation}
+		V(0)=id=U(0,0)
+	\end{equation}
+	并且：
+	\begin{align}
+		i\hbar\frac{d}{dt}V(t)&=i\hbar\frac{d}{dt}U(t+T,0)U^{-1}(T,0) \notag\\
+		&=H(t+T)U(t+T,0)U^{-1}(T,0)\notag\\
+		&=H(t)V(t)
+	\end{align}
+	因此$U(t,0)$和$V(t)$两个算符拥有同样的初始条件并且满足同样的微分方程，所以性质1大概证明完毕。
+	在接下来讨论中，我们将限制系统在有限维的希尔伯特空间。这将使的接下来的工作能够更加简单。
+	就像引言中提到的布洛赫定理中格矢作为平移算符在固体物理领域发挥重要作用，同理可以知道，在时间周期中周期演化算符$U(t,0)$（在数学领域也被称为单值算符）也是非常重要的。我们可以将周期演化算符写做指数形式:
+	\begin{equation}
+		U(T,0)=exp(-iGT/\hbar)
+	\end{equation}
+	其中算符$G$具有厄米性质，其拥有实数本征值（保证了指数形式$exp(-iGT/\hbar)$是幺正的）。所以$U$所有的本征值都在单位圆上。在我们定义的指数形式的辅助下，我们可以进一步定义一个幺正算符：
+	\begin{equation}
+		P(T):=U(t,0)exp(+iGt/\hbar)
+	\end{equation}
+	可以推出：
+	\begin{align}
+		P(t+T)&=U(t+T,0) exp⁡(+iG(t+T)/\hbar) \notag \\
+		&=U(t,0)(U(T,0)  exp⁡(+iGT/\hbar) )  exp⁡(+iGt/\hbar)\notag \\
+		&=P(t)
+	\end{align}
+	其中，第一步运用了性质1，第二步运用了该幺正算符的定义。因此，我们可以用公式写出第二个重要的性质。在上面定义的命题下，拥有时间周期$T$的量子系统的时间演化算符$U$拥有如下形式：
+	\begin{equation}
+		U(t,0)=P(t)  exp⁡(iGt/\hbar)
+	\end{equation}
+	其中幺正算符$P$的时间周期为$T$，并且算符$G$是厄米的。
+	
+	算符U的本征值谱记为$\{e^{-i\epsilon_nT/\hbar}\}$，本征态为$\{\vert n\rangle\}$，按照其展开的形式如下：
+	\begin{equation}
+		U(T,0)=\sum_n \vert n \rangle e^{-i\epsilon_nT/\hbar} \langle n \vert
+	\end{equation}
+	同时：
+	\begin{equation}
+		e^{-iGt/\hbar}\vert n \rangle = e^{-i\epsilon_nT/\hbar}\vert n \rangle
+	\end{equation}
+	现在我们在任意初始态$\vert \psi(0) \rangle$下，在$U(T,0)$下展开，开始有：
+	\begin{align}
+		\vert \psi(0) \rangle&=\sum_n \vert n\rangle \langle n \vert\psi(0)\rangle \notag \\
+		&=\sum_na_n\vert n\rangle
+	\end{align}
+	其中，$a_n=\langle n \vert\psi(0)\rangle$。应用$U(t,0)$，我们会发现：
+	\begin{align}
+		\vert\psi(t)&=U(t,0)\vert\psi(0)\rangle \notag \\
+		&=\sum_n a_nP(t)e^{iGt/\hbar}\vert n\rangle \notag \\
+		&=\sum_n a_nP(t)e^{i\epsilon_nt/\hbar} \notag \\
+		&=\sum_n a_n\vert u_n(t)\rangle e^{i\epsilon_nt/\hbar}
+	\end{align}
+	在最后一步中，我们可以定义Floquet函数：
+	\begin{equation}
+		\vert u_n(t)\rangle:=P(t)\vert n \rangle
+	\end{equation}
+	当然其也是$T$周期的：
+	\begin{equation}
+		\vert u_n(t) \rangle = \vert u_n (t+T) \rangle
+	\end{equation}
+	为了准确的定义，我们将指定状态:
+	\begin{equation}
+		\vert \psi_n(t) \rangle=\vert u_n(t)\rangle e^{-i\epsilon_nt/\hbar}
+	\end{equation}
+	作为所谓Floquet状态
+
+\end{document}
