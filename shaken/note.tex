@@ -104,9 +104,9 @@
 	\end{equation}
 	由于
 	\begin{equation}
-		\langle p \rangle = tr(\rho p) = p(\rho_{12} + \rho_{12}) \label{eq:18}
+		\langle p \rangle = tr(\rho p) = p(\rho_{12} + \rho_{21}) \label{eq:18}
 	\end{equation}
-	其中，$\rho$为密度矩阵，并应用$p_{12} = p{21} = p,p_{11} = p_{22} = 0$。再利用旋转波近似去掉以光频高速变化的部分。为此令
+	其中，$\rho$为密度矩阵，并应用$p_{12} = p_{21} = p,p_{11} = p_{22} = 0$。再利用旋转波近似去掉以光频高速变化的部分。为此令
 	\begin{equation}
 		\rho_{21}(t) = \sigma_{21}(t)e^{-i\omega t}, \rho_{12}(t) = \rho_{21}^*(t) = \sigma_{12}(t)e^{i \omega t} \label{eq:19}
 	\end{equation}
@@ -182,15 +182,58 @@
 	\end{equation}
 	在一定的光强分布下对偶极力求积分，就可以得到阱势的形式
 	\begin{equation}
-		U_{dip}(r) = \int_0^{\infty} F_2 dr
+		V_{dip}(r) = \int_0^{\infty} F_2 dr
 	\end{equation}
 	为了得到较强的势阱，要求驻波光的光强很大。设原子的速度很小，从强光修正的偶极力式\ref{eq:37}可以得到势阱的公式：
 	\begin{equation}
-		U = U_0 \cos(2kx)
+		V = \frac{v_0)}{2} \cos(2kx)
 	\end{equation}
-	式中
+	式中势阱深度$V_0$与激光光强成正比。
+
+	\clearpage
+	两束相向的激光可以有两种方法实现，第一，将一束激光分裂成两束；第二，通过镜子反射激光。前者很有可能在两束激光之间产生频率差$\Delta \nu t$，如：
+	\begin{align}
+		E_1(x,t) &= E_0 \cos(kx + \omega t + \Delta \nu t) \notag \\
+		E_2(x,t) &= E_0 \cos(kx - \omega t) 
+	\end{align}
+	则，合成光场为：
 	\begin{equation}
-		U_0 = \frac{\hbar |\delta| \Omega^2/2}{\delta^2 + \Gamma^2/4 + \Omega^2/2}
+		E(x,t) = 2E_0 \cos(kx + \frac{\Delta \nu}{2}t) \cos(\omega t + \frac{\Delta \nu}{2}t)
 	\end{equation}
-	
+	如果分裂光束差距$\Delta \nu(t)$，则整个晶格会以速度$v(t) = d_L\Delta \nu(t) $移动或振动。其中$d_L = \pi / k$。因此在实验坐标系下势阱的形式为：
+	\begin{equation}
+		V_{lab}(x,t) = \frac{V_0}{2} \cos(2k[x-X_0(t)])
+	\end{equation}
+	其中，
+	\begin{equation}
+		X_0(t) = d_L \int_0^t d \tau \Delta \nu(\tau)
+	\end{equation}
+	如果通过镜面反射也可以改变$X_0(t)$的形式来达到晶格振动的目的。
+	那么原子在振动光晶格中的哈密顿量为：
+	\begin{equation}
+		H_{lab}(t) = \frac{p^2}{2M} + V_{lab}(x,t)
+	\end{equation}
+	利用幺正变换可将哈密顿形式转化为下列形式：
+	\begin{equation}
+		H = H_0 + H_1
+	\end{equation}
+	其中
+	\begin{equation}
+		H_0 = \frac{p^2}{2M} + \frac{V_0}{2}\cos(2kx)
+	\end{equation}
+
+	\begin{equation}
+		H_1 = -F(t)x 
+	\end{equation}
+	作为外力，
+	\begin{align}
+		F(t) &= -M \ddot x \notag \\
+			 &= -M \frac{\partial v}{\partial t} \notag \\
+			 &= -M d_L \frac{\Delta \nu}{\Delta t}
+	\end{align}
+	现假设$\Delta \nu = \Delta \nu_{max} \sin(\omega t)$，则我们可以得到外力情况为：
+	\begin{align}
+		F(t) &= M d_L \frac{d}{dt}[\Delta \nu_{max} \sin(\omega t)] \notag \\
+			 &= M d_L \omega \Delta \nu_{max} \cos(\omega t)
+	\end{align}
 \end{document}
