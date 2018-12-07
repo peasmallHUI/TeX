@@ -186,54 +186,155 @@
 	\end{equation}
 	为了得到较强的势阱，要求驻波光的光强很大。设原子的速度很小，从强光修正的偶极力式\ref{eq:37}可以得到势阱的公式：
 	\begin{equation}
-		V = \frac{v_0)}{2} \cos(2kx)
+		V = \frac{V_0}{2} \cos(2kx)
 	\end{equation}
 	式中势阱深度$V_0$与激光光强成正比。
 
+	
+	% \begin{align}
+	% 	E_1(x,t) &= E_0 \cos(kx + \omega t + \Delta \nu t) \notag \\
+	% 	E_2(x,t) &= E_0 \cos(kx - \omega t) 
+	% \end{align}
+	% 则，合成光场为：
+	% \begin{equation}
+	% 	E(x,t) = 2E_0 \cos(kx + \frac{\Delta \nu}{2}t) \cos(\omega t + \frac{\Delta \nu}{2}t)
+	% \end{equation}
+	% 如果分裂光束差距$\Delta \nu(t)$，则整个晶格会以速度$v(t) = d_L\Delta \nu(t) $移动或振动。其中$d_L = \pi / k$。因此在实验坐标系下势阱的形式为：
+	% \begin{equation}
+	% 	V_{lab}(x,t) = \frac{V_0}{2} \cos(2k[x-X_0(t)])
+	% \end{equation}
+	% 其中，
+	% \begin{equation}
+	% 	X_0(t) = d_L \int_0^t d \tau \Delta \nu(\tau)
+	% \end{equation}
+	% 如果通过镜面反射也可以改变$X_0(t)$的形式来达到晶格振动的目的。
+	% 那么原子在振动光晶格中的哈密顿量为：
+	% \begin{equation}
+	% 	H_{lab}(t) = \frac{p^2}{2M} + V_{lab}(x,t)
+	% \end{equation}
+	% 利用幺正变换可将哈密顿形式转化为下列形式：
+	% \begin{equation}
+	% 	H = H_0 + H_1
+	% \end{equation}
+	% 其中
+	% \begin{equation}
+	% 	H_0 = \frac{p^2}{2M} + \frac{V_0}{2}\cos(2kx)
+	% \end{equation}
+
+	% \begin{equation}
+	% 	H_1 = -F(t)x 
+	% \end{equation}
+	% 作为外力，
+	% \begin{align}
+	% 	F(t) &= -M \ddot x \notag \\
+	% 		 &= -M \frac{\partial v}{\partial t} \notag \\
+	% 		 &= -M d_L \frac{\Delta \nu}{\Delta t}
+	% \end{align}
+	% 现假设$\Delta \nu = \Delta \nu_{max} \sin(\omega t)$，则我们可以得到外力情况为：
+	% \begin{align}
+	% 	F(t) &= M d_L \frac{d}{dt}[\Delta \nu_{max} \sin(\omega t)] \notag \\
+	% 		 &= M d_L \omega \Delta \nu_{max} \cos(\omega t)
+	% \end{align}
+
 	\clearpage
-	两束相向的激光可以有两种方法实现，第一，将一束激光分裂成两束；第二，通过镜子反射激光。前者很有可能在两束激光之间产生频率差$\Delta \nu t$，如：
-	\begin{align}
-		E_1(x,t) &= E_0 \cos(kx + \omega t + \Delta \nu t) \notag \\
-		E_2(x,t) &= E_0 \cos(kx - \omega t) 
-	\end{align}
-	则，合成光场为：
+	由上述推导可以得到一维光晶格中原子受到的周期势的形式为：
 	\begin{equation}
-		E(x,t) = 2E_0 \cos(kx + \frac{\Delta \nu}{2}t) \cos(\omega t + \frac{\Delta \nu}{2}t)
+		V(x) = \frac{V_0}{2} \cos(2k_Lx)
 	\end{equation}
-	如果分裂光束差距$\Delta \nu(t)$，则整个晶格会以速度$v(t) = d_L\Delta \nu(t) $移动或振动。其中$d_L = \pi / k$。因此在实验坐标系下势阱的形式为：
+	一般情况下，以单光子反冲能为单位，
 	\begin{equation}
-		V_{lab}(x,t) = \frac{V_0}{2} \cos(2k[x-X_0(t)])
+		E_r = \frac{\hbar^2 {k_L}^2}{2M}
+	\end{equation}
+
+	一对相向传播的激光束干涉可以得到光晶格需要的驻波场，但是当我们需要对光晶格进行驱动时，光晶格不再静止而是以某种速度移动(一般称为震动光晶格)。
+	一般由以下几种方法可以得到所谓震动光晶格所需的势场。对频率进行调制，即两束激光的频率存在频率差$\Delta \nu$；
+	或者对相位进行调节，对相位的调节一般通过改变镜面反射的镜子距离来实现对相位的控制。所有的方法都会导致势场有所改变。
+	在实验室坐标系下，原子受到的势场形式为：
+	\begin{equation}
+		V_{lat}(x,t) = \frac{V_0}{2} \cos (2k_Lx - X_0(t)) 
+	\end{equation}	
+	当调制协议不同时，$X_0(t)$会以不同的形式展现。
+
+	原子在震动光晶格中哈密顿量的形式，
+	\begin{equation}
+		H = \frac{p^2}{2M} + V_{lat}(x,t)
+	\end{equation}
+	由于$V_{lab}$既是空间周期，也与时间相关，为了以后计算更加方便。可以将实验室坐标系改为共动坐标系，从而简化后面的计算。
+	
+	考虑到哈密顿力学下的\emph{Poincar\'{e}-Cartan}不变量：
+	\begin{equation}
+		dS = \boldsymbol{p} \cdot d \boldsymbol{q} - Hdt
+	\end{equation}
+	改变坐标系后得到新的$ \boldsymbol{\tilde{q}} = \boldsymbol{q} + \boldsymbol{r}(t)$,$ \boldsymbol{\tilde{p}} = \boldsymbol{p}$。微分形式为$d \boldsymbol{\tilde{p}} = d \boldsymbol{p}$和$d \boldsymbol{\tilde{q}} = d \boldsymbol{q} + \dot{\boldsymbol{r}} (t)$。
+	重写\emph{Poincar\'{e}-Cartan}不变量，
+	\begin{align}
+		dS &= \boldsymbol{p} \cdot d \boldsymbol{q} - Hdt = \boldsymbol{\tilde{p}} \cdot \left[ d \boldsymbol{\tilde{q}} - \dot{\boldsymbol{r}} (t)dt \right]  - Hdt \notag \\
+		&= \boldsymbol{\tilde{p}} \cdot d \boldsymbol{ \tilde{q}} - \left( H + \boldsymbol{\tilde{p}} \cdot \boldsymbol{\dot{r}}(t) \right)dt
+	\end{align}
+	这样可以立即得到$\tilde{H} = H + \boldsymbol{\tilde{p}} \cdot \boldsymbol{\dot{r}}(t) $，将震动光晶格中的哈密顿量带入上式，可以得到
+	\begin{equation}
+		\tilde{H} = \frac{\tilde{\boldsymbol{p}}^2}{2M} + V_{lat}(x) + \dot{X}_0(t) \cdot \tilde{\boldsymbol{p}}
+	\end{equation}
+	凑完全平方项，可进一步得到：
+	\begin{equation}
+		H' = \frac{\left[ \tilde{p} + M \dot{X_0} \right]^2}{2M} + V_{lat}(x) - \frac{1}{2}M {\dot{X_0}}^2
+	\end{equation}
+	由上式形式可知，震动光晶格中相当于出现一个时间依赖的矢势，
+	\begin{equation}
+		\boldsymbol{A} = -M \dot{X_0}
+	\end{equation}
+	由矢势相应会得到一个力场，
+	\begin{align}
+		\boldsymbol{F} &= \frac{\partial \boldsymbol{A}}{\partial t} \notag \\
+		               &= -M \ddot{X_0}(t)
+	\end{align}
+	
+	
+	% 为了更好的区分驱动或震动强度，我们引入一个无量纲常数来定义这个强度，
+	% \begin{equation}
+	% 	K_0 = \frac{Fd_L}{\hbar \omega}
+	% \end{equation}
+	% 其中，$d_L = \lambda / 2$为晶格常数。
+
+	下面研究各种不同的震动方式与强度$K_0$的关系，以及实际在实验中的取值范围。
+	首先，第一种驱动方式为频率调制，两束激光之间频率相差$\Delta \nu = \delta \nu_{max} \sin(\omega t)$，则实际的势场为，
+	\begin{equation}
+		V_{lat} = \frac{V_0}{2} \cos(2k_L \left[ x - X_0(t) \right])
 	\end{equation}
 	其中，
 	\begin{equation}
-		X_0(t) = d_L \int_0^t d \tau \Delta \nu(\tau)
+		X_0(t) = \frac{\lambda}{2} \int_0^t d \tau \Delta \nu(\tau)
 	\end{equation}
-	如果通过镜面反射也可以改变$X_0(t)$的形式来达到晶格振动的目的。
-	那么原子在振动光晶格中的哈密顿量为：
+	化简后晶格势为，
 	\begin{equation}
-		H_{lab}(t) = \frac{p^2}{2M} + V_{lab}(x,t)
+		V_{lat} = \frac{V_0}{2} \cos \left( 2k_L \left[ x - \frac{\lambda \Delta \nu_{max}}{2\omega} \cos(\omega t) \right] \right)
 	\end{equation}
-	利用幺正变换可将哈密顿形式转化为下列形式：
-	\begin{equation}
-		H = H_0 + H_1
-	\end{equation}
-	其中
-	\begin{equation}
-		H_0 = \frac{p^2}{2M} + \frac{V_0}{2}\cos(2kx)
-	\end{equation}
-
-	\begin{equation}
-		H_1 = -F(t)x 
-	\end{equation}
-	作为外力，
+	将上述结果带入力场公式，可得，
 	\begin{align}
-		F(t) &= -M \ddot x \notag \\
-			 &= -M \frac{\partial v}{\partial t} \notag \\
-			 &= -M d_L \frac{\Delta \nu}{\Delta t}
+		F &= M \ddot{X}_0  \notag \\
+		  &= M d_L\frac{d \Delta \nu}{dt} \notag \\
+		  &= M d_L \omega \Delta \nu_{max} \cos(\omega t) \notag \\
+		  &= F_0 \cos(\omega t)
 	\end{align}
-	现假设$\Delta \nu = \Delta \nu_{max} \sin(\omega t)$，则我们可以得到外力情况为：
+	因此，$K_0$为，
 	\begin{align}
-		F(t) &= M d_L \frac{d}{dt}[\Delta \nu_{max} \sin(\omega t)] \notag \\
-			 &= M d_L \omega \Delta \nu_{max} \cos(\omega t)
+		K_0 &= \frac{F_0d_L}{\hbar \omega} \notag \\
+			&= \frac{M {d_L}^2 \omega \Delta \nu_{max}}{\hbar \omega} \notag \\
+			&= \frac{\pi^2}{2} \frac{\Delta \nu_{max}}{\omega_{rec}}
+	\end{align}
+	其中，$\omega_{rec} = E_{rec}/\hbar = \hbar {k_L}^2 / 2M$为反冲频率。
+	
+	其次，当驱动方式为相位调制时，且调制协议为改变镜面反射的位移$X(t) = \Delta x_{max} \cos(\omega t)$时，可以得到晶格势为，
+	\begin{equation}
+		V_{lat} = \frac{V_0}{2} \cos(2k_L \left[ x - \Delta x_{max} \cos(\omega t) \right])
+	\end{equation}
+	将上述公式带入力场公式可得，
+	\begin{equation}
+		F = M \omega^2 \Delta x_{max} \cos(\omega t)
+	\end{equation}
+	最后可以得到该调制方式的$K_0$,
+	\begin{align}
+		K_0 &= \frac{ M \omega^2 \Delta x_{max} d_L}{\hbar \omega} \notag \\
+			&= \frac{\pi^2}{2} \frac{\omega}{\omega_{rec}} \frac{\Delta x_{max}}{d_L}
 	\end{align}
 \end{document}
