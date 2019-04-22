@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{ctex}
+\usepackage{mathdots}
+
+
+\title{Floquet theory and quasi-energy}
+\author{Xiao-Hui, HU}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    
+    Floquet理论主要处理的是时间周期下的哈密顿量的问题。
+    该系统的薛定谔方程为：
+    \begin{equation}
+        i \partial_{t} | \psi(t) \rangle=H(t) | \psi(t) \rangle, \quad H(t+T)=H(t)
+    \end{equation}
+
+    我们这里引入Floquet算符和Floquet态，其中floquet算符是在一个周期内的时间演化算符。
+    \begin{equation}
+        F[t]=U(t+T, t), \quad F[t] | \psi(t) \rangle=| \psi(t+T) \rangle
+    \end{equation}
+
+    而Floquet态为Floquet算符的本征态：
+    \begin{equation}
+        F[t] | \Psi_{\alpha}(t) \rangle=\lambda_{\alpha} | \Psi_{\alpha}(t) \rangle
+    \end{equation}
+
+    因为演化算符是幺正的，因此$\lambda_{\alpha}=e^{i \theta_{\alpha}}$作为相位因子。固其应满足：
+    \begin{equation}
+        | \Psi_{\alpha}(t+T) \rangle=e^{i \theta_{\alpha}} | \Psi_{\alpha}(t) \rangle
+    \end{equation}
+
+    我们可对Floquet态取以下形式：
+    \begin{equation}
+        | \Psi_{\alpha}(t) \rangle=e^{-i \varepsilon_{a} t} | u_{\alpha}(t) \rangle, \quad | u_{\alpha}(t+T) \rangle=| u_{\alpha}(t) \rangle
+    \end{equation}
+
+    其中$| u_{\alpha}(t) \rangle$被称作Floquet模，它与哈密顿量的时间周期一致。这里可以看出Floquet态与Bloch态的相似性。
+    它们一个为时间周期，一个为空间周期。可以验证得到该形式满足时间周期关系：
+    \begin{equation}
+        F[t] | \Psi_{\alpha}(t) \rangle=| \Psi_{\alpha}(t+T) \rangle=e^{-i \varepsilon_{a} T} | \Psi_{\alpha}(t) \rangle
+    \end{equation}
+
+    这里$ \varepsilon_{a}$与定态中能量类似，称为准能量。将上述形式带入薛定谔方程，可以得到：
+    \begin{equation}
+        \left\{H(t)-i \partial_{t}\right\} | u_{\alpha}(t) \rangle=\varepsilon_{\alpha} | u_{\alpha}(t) \rangle
+    \end{equation}
+    为了能够利用定态问题的讨论方式，我们这里决定将希尔伯特空间扩展。首先扩展能量和Floquet模:
+    \begin{equation}
+        \overline{\varepsilon}_{\alpha m}=\varepsilon_{\alpha}+m \omega, \quad | \overline{u}_{\alpha m}(t) \rangle=e^{i m \omega t} | u_{\alpha}(t) \rangle
+    \end{equation}
+
+    可以得出扩展后的Floquet态与原来类似：
+    \begin{equation}
+        | \Psi_{\alpha}(t) \rangle=e^{-i \varepsilon_{a} t} | u_{\alpha}(t) \rangle=e^{-i \overline{\varepsilon}_{\alpha m} t} | \overline{u}_{\alpha m}(t) \rangle
+    \end{equation}
+
+    不管m取任何值，$\left\{\varepsilon_{\alpha m}, u_{\alpha m}\right\}$都对应同一Floquet态。
+    同时，进一步引入：
+    \begin{equation}
+        Q(t)=H(t)-i \partial_{t}
+    \end{equation}
+
+    这样可以将薛定谔方程化简为：
+    \begin{equation}
+        Q(t) | \overline{u}_{\alpha m}(t) \rangle=\overline{\varepsilon}_{\alpha m} | \overline{u}_{\alpha m}(t) \rangle
+    \end{equation}
+
+    并且在该空间重新定义新的内积：
+    \begin{equation}
+        \left\langle\left\langle\overline{u}_{\alpha m} | \overline{v}_{\beta n}\right\rangle\right\rangle=\frac{1}{T} \int_{0}^{T} d t\left\langle\overline{u}_{\alpha m}(t) | \overline{v}_{\beta n}(t)\right\rangle
+    \end{equation}
+    这保证了不同的m的Floquet模是正交的。
+
+    对于扩展哈密顿量的矩阵形式，先选定基矢：
+    \begin{equation}
+        | \lambda m \rangle \rangle=| \lambda \rangle e^{i m \omega t}
+    \end{equation}
+
+    我们可以得到扩展哈密顿量的矩阵元：
+    \begin{equation}
+    \begin{aligned}\langle\langle\lambda m|Q| \xi n\rangle\rangle &=\frac{1}{T} \int_{0}^{T} d t e^{-i m \omega t}\left\langle\lambda\left|\left\{H(t)-i \partial_{t}\right\}\right| \xi\right\rangle e^{i n \omega t} \\ &=\left\langle\lambda\left|H_{m-n}\right| \xi\right\rangle+ m \omega \delta_{\lambda \xi} \delta_{m n} \end{aligned}
+    \end{equation}
+
+    其基本结构可以表示为如下形式：
+    \begin{equation}
+        \left\{
+            \begin{matrix}
+            \ddots  &               &           &               & \iddots    \\ 
+                    & H_0 + \omega  &   H_1     & H_2           &           \\
+                    & H_{-1}        &   H_0     & H_1           &           \\
+                    & H_{-2}        &   H_{-1}  & H_0 - \omega  &           \\
+            \iddots  &               &           &               & \ddots    
+            \end{matrix}
+        \right\}
+    \end{equation}
+    
+    这样可以通过对角化该矩阵来得到准能谱。
+    
+    现假设某一系统的哈密顿如下形式：
+    \begin{equation}
+        \hat{H}(t)=\frac{\hat{p}^{2}}{2 M}+V_{0} \cos ^{2}\left(k_{L} x\right)-F_{0} \sin (\omega t)
+    \end{equation}
+
+    通过欧拉变换$\sin (\omega t)=1 /(2 i)\left(e^{i \omega t}-e^{-i \omega t}\right)$，
+    我们可以重写哈密顿量：
+    \begin{equation}
+        \hat{H}(t)=\sum_{m=-1}^{1} \hat{H}_{m} e^{i m \omega t}
+    \end{equation}
+
+    这样我们可以得到$\hat{H}_{0} = \frac{\hat{p}^{2}}{2 M}+V_{L}(x)$，
+    且$\hat{H}_{ \pm 1} = \pm F_{0} /(2 i)$。这样可以利用定态形式下的解法来解决时间周期下的问题。
+
+
+
+\end{document}
