@@ -1,0 +1,349 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{ctex}
+
+\title{Shaken Optical Lattice Theoretical Backgroud}
+\author{Xiao-Hui, HU}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	电磁场对原子作用力可以表示为，这个力由原子所在处的光与原子相互作用能的梯度产生：
+	\begin{equation}
+		\boldsymbol{F} = -\nabla U(\boldsymbol{r},t) \label{eq:1}
+	\end{equation}
+	$U$是电磁场与原子相互作用能。它与原子所在位置$\boldsymbol{r}$和时间$t$有关，一般可以写成
+	\begin{equation}
+		U = - \boldsymbol{p} \cdot \boldsymbol{E}(\boldsymbol{r},t) \label{eq:2}
+	\end{equation}
+	%$\boldsymbol{p}$为感生偶极矩。
+
+	这个力本质上就是电磁场的洛伦兹力（包含电场和磁场力）。它是由不可分割的电场力$\boldsymbol{f}_e$和磁场力$\boldsymbol{f}_m$组成：
+	\begin{equation}
+		\boldsymbol{f}_e = \rho \boldsymbol{E}(\boldsymbol{r},t) \label{eq:3}
+	\end{equation}
+	\begin{equation}
+		\boldsymbol{f}_m = \rho \frac{d\boldsymbol{r}}{dt} \times \boldsymbol{B}(\boldsymbol{r},t) \label{eq:4}
+	\end{equation}
+	由于电磁场是周期振动的，频率很高，原子实际受到的力是对瞬间力在周期$T$取平均值：
+	\begin{equation}
+		\bar{\boldsymbol{F}} = \frac{1}{T} \int_{0}^{T} \boldsymbol{F}(t)dt \label{eq:5}
+	\end{equation}
+	我们有$\boldsymbol{F_e} = e \boldsymbol{E}(\boldsymbol{r},t)$。因为在原子中$\boldsymbol{r}$与$\boldsymbol{R}$相距很小，可对$\boldsymbol{E}$在$\boldsymbol{R}$附近展开，
+	所以得到$\boldsymbol{E}$在$O_xyz$坐标系中各个分量
+	\begin{equation}
+		E_i(\boldsymbol{r},t) = E_i(\boldsymbol{R},t) + \sum_j (r_j - R_j) \frac{\partial E_i(\boldsymbol{R},t)}{\partial r_j} + \cdots  \label{eq:6}
+	\end{equation}
+	\centerline{$(i,j = x,y,z)$}
+
+	我们可只取一次项，而忽略高次项，因为对电场
+	\begin{equation*}
+		E(\boldsymbol{r},t) = Re\{Ee^{i(\omega t-\boldsymbol{k} \cdot \boldsymbol{r})}\} 
+	\end{equation*}
+	的展开式按$kr=2\pi r /\lambda$的幂进行，$r/\lambda$的最大值为原子半径与电磁场波长之比，$a/\lambda$是约为$10^{-3}$数量级的小数。这样，我们有
+	\begin{equation}
+		F_{ei}(\boldsymbol{R},t) = eE_i(\boldsymbol{R},t) + \sum_j e(r_j - R_j) \frac{\partial E_i(\boldsymbol{R},t)}{\partial r_j} \label{eq:7}
+	\end{equation}
+	对振动周期进行平均后，等号右边的第一项消去为零，第二项中的$e(r_j - R_j)$（即电偶极矩$p_j$）是一个表示原子内部状态的量。
+	将偏微分算符简化，引入
+	\begin{equation*}
+		\partial_j E_i = {\left[\frac{\partial E_i(\boldsymbol{r},t)}{\partial_{r_j}}\right]}_{\boldsymbol{r}=\boldsymbol{R}},
+	\end{equation*}
+	得到
+	\begin{equation}
+		\overline{F_{ei}} = \overline{\sum_j p_j(\partial_j E_i)} \label{eq:8}
+	\end{equation}
+	同样，从式\ref{eq:4}可得
+	\begin{equation}
+		\boldsymbol{F}_m = \frac{d\boldsymbol{p}}{dt} \times \boldsymbol{B}(\boldsymbol{R},t) \label{eq:9}
+	\end{equation}
+	这里我们将$\boldsymbol{r}$换成$\boldsymbol{R}$。这种近似的根据是磁场力比电荷作用的电场力要小$v/c$数量级($v$是原子运动速度，$c$是光速)，高阶项就更可不考虑了。
+	因为有
+	\begin{align*}
+		\frac{d}{dt}(\boldsymbol{p} \times \boldsymbol{B}) &= \frac{d\boldsymbol{p}}{dt} \times \boldsymbol{B} + \boldsymbol{p} \times \frac{d\boldsymbol{B}}{dt} \\
+		&= \frac{d\boldsymbol{p}}{dt} \times \boldsymbol{B} + \boldsymbol{p} \times \left[ \frac{\partial \boldsymbol{B}}{\partial t} + \left(\frac{d\boldsymbol{R}}{dt} \cdot \nabla_{\boldsymbol{R}}\right)\boldsymbol{B}(\boldsymbol{R},t)\right]
+	\end{align*}
+	由Maxwell方程中$\frac{\partial \boldsymbol{B}}{\partial t} = -\nabla \times \boldsymbol{E}$；而又因为$\frac{d\boldsymbol{R}}{dt} \ll c$，后一项可忽略。这样，式\ref{eq:9}化为
+	\begin{equation}
+		\boldsymbol{F}_m = \frac{d}{dt}(\boldsymbol{p} \times \boldsymbol{B}) + \boldsymbol{p} \times (\nabla \times \boldsymbol{E}) \label{eq:10}
+	\end{equation}
+	又根据梯度算符$\nabla$的矢量运算公式
+	\begin{equation*}
+		\nabla(\boldsymbol{A} \cdot \boldsymbol{B}) = (\boldsymbol{A} \cdot \nabla)\boldsymbol{B} + (\boldsymbol{B} \cdot \nabla)\boldsymbol{A} + \boldsymbol{A} \times (\nabla \times \boldsymbol{B}) + \boldsymbol{B} \times (\nabla \times \boldsymbol{A})
+	\end{equation*}
+	微分只对场起作用，对偶极矩的微分可忽略。将式\ref{eq:10}展开，简化偏微分算符，得到
+	\begin{equation}
+		F_{mi} = \frac{d}{dt}(\boldsymbol{p} \times \boldsymbol{B})_i + \sum_j p_j(\partial_i E_j) - \sum_j p_j(\partial_j E_i) \label{eq:11}
+	\end{equation}
+	按振动周期平均后第一项消去，于是有
+	\begin{equation}
+		\overline{F_{mi}} = \overline{\sum_j p_j(\partial_i E_j)} - \overline{\sum_j p_j(\partial_j E_i)} \label{eq:12}
+	\end{equation}
+	式中等号右边第一项与式\ref{eq:8}相同。联合两式，可得洛伦兹力的$i$分量
+	\begin{equation}
+		\overline{F_{mi}} = \overline{\sum_j p_j(\partial_i E_j)} \label{eq:13}
+	\end{equation}
+	对坐标的偏微分只对场起作用，所以上式的完整矢量表示可写成
+	\begin{equation}
+		\overline{\boldsymbol{F}} = \overline{\nabla(\boldsymbol{p} \cdot \boldsymbol{E})} \label{eq:14}
+	\end{equation}
+	这就是式\ref{eq:1}和\ref{eq:2}的合成结果，不过$\boldsymbol{E}(\boldsymbol{r},t)$换成了$\boldsymbol{E}(\boldsymbol{R},t)$，而梯度算符$\nabla$只对电场起作用。
+	式\ref{eq:14}表面上不含磁场，但实际上已经包含磁场作用。
+	在量子力学中用上式可写成
+	\begin{equation}
+		\boldsymbol{F} = \langle p \nabla E \rangle = \langle p \rangle \langle \nabla_{\boldsymbol{R}}E(\boldsymbol{R},t) \rangle \label{eq:15}
+	\end{equation}
+	如果另电场的形式为
+	\begin{align}
+		E(\boldsymbol{R},t) &= E_0(\boldsymbol{R})\cos[\omega t + \phi(\boldsymbol{R})] \notag \\
+		&= E_0^+(\boldsymbol{R})e^{-i\omega t} + E_0^-(\boldsymbol{R})e^{i\omega t} \label{eq:16}
+	\end{align}
+	其中
+	\begin{equation}
+		E_0^+ = \frac{1}{2}E_0(\boldsymbol{R})e^{-i\phi(\boldsymbol{R})},  E_0^- = \frac{1}{2}E_0(\boldsymbol{R})e^{i\phi (\boldsymbol{R})} \label{eq:17}
+	\end{equation}
+	由于
+	\begin{equation}
+		\langle p \rangle = tr(\rho p) = p(\rho_{12} + \rho_{21}) \label{eq:18}
+	\end{equation}
+	其中，$\rho$为密度矩阵，并应用$p_{12} = p_{21} = p,p_{11} = p_{22} = 0$。再利用旋转波近似去掉以光频高速变化的部分。为此令
+	\begin{equation}
+		\rho_{21}(t) = \sigma_{21}(t)e^{-i\omega t}, \rho_{12}(t) = \rho_{21}^*(t) = \sigma_{12}(t)e^{i \omega t} \label{eq:19}
+	\end{equation}
+	为了统一，也把$\rho_{11}$、$\rho_{22}$改成
+	\begin{equation}
+		\rho_{11} = \sigma_{11}, \rho_{22} = \sigma_{22} \label{eq:20}
+	\end{equation}
+	将式\ref{eq:19}和式\ref{eq:20}代入式\ref{eq:15}，忽略以$2\omega t$呈指数变化的高频项，得到
+	\begin{equation}
+		\boldsymbol{F}(\boldsymbol{R},t) = p(\sigma_{12} \nabla E_0^+ + \sigma_{21} \nabla E_0^-) \label{eq:21}
+	\end{equation}
+	由于这里涉及相位问题，我们将对计算稍作变动。引入变换
+	\begin{equation}
+		\sigma_{21}'= \sigma_{21} e^{i\phi(\boldsymbol{R},t)}, \sigma_{12}'= \sigma_{12} e^{-i\phi(\boldsymbol{R},t)} \label{eq:22}
+	\end{equation}
+	将上式和式\ref{eq:17}带入式\ref{eq:21}并引入拉比频率$\Omega = pE_0(\boldsymbol{R})/\hbar$,可得
+	\begin{equation}
+		\boldsymbol{F}(\boldsymbol{R},t) = \hbar (u\nabla \Omega + v\Omega \nabla \phi)/2 \label{eq:23}
+	\end{equation}
+	其中
+	\begin{equation}
+		u = \sigma_{12}' + \sigma_{21}', v = -i(\sigma_{12}' - \sigma_{21}')
+	\end{equation}
+	再引入
+	\begin{equation}
+		\omega = \sigma_{22} - \sigma_{11}
+	\end{equation}
+	得到三个参量的时间变化率公式
+	\begin{equation}
+		\frac{du}{dt} = (\delta + \frac{d\phi}{dt})v - \frac{\Gamma}{2}u 
+	\end{equation}
+	\begin{equation}
+		\frac{dv}{dt} = -(\delta + \frac{d\phi}{dt})u + \Omega\omega - \frac{\Gamma}{2}v 
+	\end{equation}
+	\begin{equation}
+		\frac{d\omega}{dt} = - \Omega v - \Gamma(\omega + 1)
+	\end{equation}
+	这是光学布洛赫方程的另一种形式，其中$u,v$代表以外电场频率振动的感生偶极矩的两个相互垂直的分量，而$\omega$则表示上、下能级的原子布居差。
+	我们只求方程的稳态解，并认为开始时原子是静止的，这样令方程组等号左边均为零，且有
+	\begin{equation}
+		\frac{d\phi}{dt} = \nabla \phi(\boldsymbol{R}) \cdot \frac{d\boldsymbol{r}}{dt} = \nabla \phi \cdot \boldsymbol{v} = 0
+	\end{equation}
+	可以解得
+	\begin{equation}
+		u = \frac{-\delta \Omega}{\delta^2 + \Gamma^2/4 + \Omega^2/2}
+	\end{equation}
+	\begin{equation}
+		v = \frac{-\Gamma \Omega/2}{\delta^2 + \Gamma^2/4 + \Omega^2/2}
+	\end{equation}
+	\begin{equation}
+		\omega = \frac{\delta^2 + \Gamma^2/4}{\delta^2 + \Gamma^2/4 + \Omega^2/2}
+	\end{equation}
+	将上述解带入到式\ref{eq:23}，可以得到电磁场中原子所受到的力
+	\begin{equation}
+		\boldsymbol{F} = - \frac{\hbar \Omega^2}{2} \frac{(\omega - \omega_a) \nabla \Omega/\Omega + \Gamma \nabla \phi/2}{(\omega - \omega_a)^2 + (\Gamma/2)^2 + \Omega^2/2}
+	\end{equation}
+	由上式可见，这个力由两部分组成，即$\boldsymbol{F} = \boldsymbol{F_1} + \boldsymbol{F_2}$，我们把第一部分称为散射力，第二部分称为偶极力（$\boldsymbol{F_1}$代表单位时间内原子得到的光子总动量；$\boldsymbol{F_2}$方向决定于电磁场的频率失谐，偶极矩和不均匀场是产生这个力的充要条件）。
+	当原子以速度$v_0$运动时，上面有关原子受力公式中的原子中心位置$\boldsymbol{R}$就成为时间$t$的函数：
+	\begin{equation}
+		\boldsymbol{R} = \boldsymbol{R}_0 + \boldsymbol{v}_0t
+	\end{equation}
+	现在设激光场是沿$z$轴偏振且沿$x$轴传播的驻波场：
+	\begin{equation}
+		E_x(x,t) = 2E_0\cos(kx)\cos(\omega t)
+	\end{equation}
+	这个光场的振幅是随坐标变化的，但相位处处相同，$\nabla \phi = 0$。因此原子受力只有偶极力部分：
+	\begin{equation}
+		F_2 \propto \frac{\nabla \Omega}{\Omega} = \frac{\nabla E(x,t)}{E(x,t)} \propto -tan(kx)
+	\end{equation}
+	在场强很小时，有$\Omega \ll \Gamma$。这时，力的表达式可以简化，得到：
+	\begin{equation}
+		F = \frac{\hbar k \Omega^2 \delta}{\delta^2 + \Gamma^2/4} \left\{ sin(2kx) + kv_0 \frac{\Gamma}{\delta^2 + \Gamma^2/4}[1-\cos(2kx)] \right\} \label{eq:37}
+	\end{equation}
+	在一定的光强分布下对偶极力求积分，就可以得到阱势的形式
+	\begin{equation}
+		V_{dip}(r) = \int_0^{\infty} F_2 dr
+	\end{equation}
+	为了得到较强的势阱，要求驻波光的光强很大。设原子的速度很小，从强光修正的偶极力式\ref{eq:37}可以得到势阱的公式：
+	\begin{equation}
+		V = \frac{V_0}{2} \cos(2kx)
+	\end{equation}
+	式中势阱深度$V_0$与激光光强成正比。
+
+	
+	% \begin{align}
+	% 	E_1(x,t) &= E_0 \cos(kx + \omega t + \Delta \nu t) \notag \\
+	% 	E_2(x,t) &= E_0 \cos(kx - \omega t) 
+	% \end{align}
+	% 则，合成光场为：
+	% \begin{equation}
+	% 	E(x,t) = 2E_0 \cos(kx + \frac{\Delta \nu}{2}t) \cos(\omega t + \frac{\Delta \nu}{2}t)
+	% \end{equation}
+	% 如果分裂光束差距$\Delta \nu(t)$，则整个晶格会以速度$v(t) = d_L\Delta \nu(t) $移动或振动。其中$d_L = \pi / k$。因此在实验坐标系下势阱的形式为：
+	% \begin{equation}
+	% 	V_{lab}(x,t) = \frac{V_0}{2} \cos(2k[x-X_0(t)])
+	% \end{equation}
+	% 其中，
+	% \begin{equation}
+	% 	X_0(t) = d_L \int_0^t d \tau \Delta \nu(\tau)
+	% \end{equation}
+	% 如果通过镜面反射也可以改变$X_0(t)$的形式来达到晶格振动的目的。
+	% 那么原子在振动光晶格中的哈密顿量为：
+	% \begin{equation}
+	% 	H_{lab}(t) = \frac{p^2}{2M} + V_{lab}(x,t)
+	% \end{equation}
+	% 利用幺正变换可将哈密顿形式转化为下列形式：
+	% \begin{equation}
+	% 	H = H_0 + H_1
+	% \end{equation}
+	% 其中
+	% \begin{equation}
+	% 	H_0 = \frac{p^2}{2M} + \frac{V_0}{2}\cos(2kx)
+	% \end{equation}
+
+	% \begin{equation}
+	% 	H_1 = -F(t)x 
+	% \end{equation}
+	% 作为外力，
+	% \begin{align}
+	% 	F(t) &= -M \ddot x \notag \\
+	% 		 &= -M \frac{\partial v}{\partial t} \notag \\
+	% 		 &= -M d_L \frac{\Delta \nu}{\Delta t}
+	% \end{align}
+	% 现假设$\Delta \nu = \Delta \nu_{max} \sin(\omega t)$，则我们可以得到外力情况为：
+	% \begin{align}
+	% 	F(t) &= M d_L \frac{d}{dt}[\Delta \nu_{max} \sin(\omega t)] \notag \\
+	% 		 &= M d_L \omega \Delta \nu_{max} \cos(\omega t)
+	% \end{align}
+
+	\clearpage
+	由上述推导可以得到一维光晶格中原子受到的周期势的形式为：
+	\begin{equation}
+		V(x) = \frac{V_0}{2} \cos(2k_Lx)
+	\end{equation}
+	一般情况下，以单光子反冲能为单位，
+	\begin{equation}
+		E_r = \frac{\hbar^2 {k_L}^2}{2M}
+	\end{equation}
+
+	一对相向传播的激光束干涉可以得到光晶格需要的驻波场，但是当我们需要对光晶格进行驱动时，光晶格不再静止而是以某种速度移动(一般称为震动光晶格)。
+	一般由以下几种方法可以得到所谓震动光晶格所需的势场。对频率进行调制，即两束激光的频率存在频率差$\Delta \nu$；
+	或者对相位进行调节，对相位的调节一般通过改变镜面反射的镜子距离来实现对相位的控制。所有的方法都会导致势场有所改变。
+	在实验室坐标系下，原子受到的势场形式为：
+	\begin{equation}
+		V_{lat}(x,t) = \frac{V_0}{2} \cos (2k_Lx - X_0(t)) 
+	\end{equation}	
+	当调制协议不同时，$X_0(t)$会以不同的形式展现。
+
+	原子在震动光晶格中哈密顿量的形式，
+	\begin{equation}
+		H = \frac{p^2}{2M} + V_{lat}(x,t)
+	\end{equation}
+	由于$V_{lab}$既是空间周期，也与时间相关，为了以后计算更加方便。可以将实验室坐标系改为共动坐标系，从而简化后面的计算。
+	
+	考虑到哈密顿力学下的\emph{Poincar\'{e}-Cartan}不变量：
+	\begin{equation}
+		dS = \boldsymbol{p} \cdot d \boldsymbol{q} - Hdt
+	\end{equation}
+	改变坐标系后得到新的$ \boldsymbol{\tilde{q}} = \boldsymbol{q} + \boldsymbol{r}(t)$,$ \boldsymbol{\tilde{p}} = \boldsymbol{p}$。微分形式为$d \boldsymbol{\tilde{p}} = d \boldsymbol{p}$和$d \boldsymbol{\tilde{q}} = d \boldsymbol{q} + \dot{\boldsymbol{r}} (t)$。
+	重写\emph{Poincar\'{e}-Cartan}不变量，
+	\begin{align}
+		dS &= \boldsymbol{p} \cdot d \boldsymbol{q} - Hdt = \boldsymbol{\tilde{p}} \cdot \left[ d \boldsymbol{\tilde{q}} - \dot{\boldsymbol{r}} (t)dt \right]  - Hdt \notag \\
+		&= \boldsymbol{\tilde{p}} \cdot d \boldsymbol{ \tilde{q}} - \left( H + \boldsymbol{\tilde{p}} \cdot \boldsymbol{\dot{r}}(t) \right)dt
+	\end{align}
+	这样可以立即得到$\tilde{H} = H + \boldsymbol{\tilde{p}} \cdot \boldsymbol{\dot{r}}(t) $，将震动光晶格中的哈密顿量带入上式，可以得到
+	\begin{equation}
+		\tilde{H} = \frac{\tilde{\boldsymbol{p}}^2}{2M} + V_{lat}(x) + \dot{X}_0(t) \cdot \tilde{\boldsymbol{p}}
+	\end{equation}
+	凑完全平方项，可进一步得到：
+	\begin{equation}
+		H' = \frac{\left[ \tilde{p} + M \dot{X_0} \right]^2}{2M} + V_{lat}(x) - \frac{1}{2}M {\dot{X_0}}^2
+	\end{equation}
+	由上式形式可知，震动光晶格中相当于出现一个时间依赖的矢势，
+	\begin{equation}
+		\boldsymbol{A} = -M \dot{X_0}
+	\end{equation}
+	由矢势相应会得到一个力场，
+	\begin{align}
+		\boldsymbol{F} &= \frac{\partial \boldsymbol{A}}{\partial t} \notag \\
+		               &= -M \ddot{X_0}(t)
+	\end{align}
+	
+	
+	% 为了更好的区分驱动或震动强度，我们引入一个无量纲常数来定义这个强度，
+	% \begin{equation}
+	% 	K_0 = \frac{Fd_L}{\hbar \omega}
+	% \end{equation}
+	% 其中，$d_L = \lambda / 2$为晶格常数。
+
+	下面研究各种不同的震动方式与强度$K_0$的关系，以及实际在实验中的取值范围。
+	首先，第一种驱动方式为频率调制，两束激光之间频率相差$\Delta \nu = \Delta \nu_{max} \sin(\omega t)$，则实际的势场为，
+	\begin{equation}
+		V_{lat} = \frac{V_0}{2} \cos(2k_L \left[ x - X_0(t) \right])
+	\end{equation}
+	其中，
+	\begin{equation}
+		X_0(t) = \frac{\lambda}{2} \int_0^t d \tau \Delta \nu(\tau)
+	\end{equation}
+	化简后晶格势为，
+	\begin{equation}
+		V_{lat} = \frac{V_0}{2} \cos \left( 2k_L \left[ x - \frac{\lambda \Delta \nu_{max}}{2\omega} \cos(\omega t) \right] \right)
+	\end{equation}
+	将上述结果带入力场公式，可得，
+	\begin{align}
+		F &= M \ddot{X}_0  \notag \\
+		  &= M d_L\frac{d \Delta \nu}{dt} \notag \\
+		  &= M d_L \omega \Delta \nu_{max} \cos(\omega t) \notag \\
+		  &= F_0 \cos(\omega t)
+	\end{align}
+	因此，$K_0$为，
+	\begin{align}
+		K_0 &= \frac{K}{\hbar \omega}=\frac{F_0d_L}{\hbar \omega} \notag \\
+			&= \frac{M {d_L}^2 \omega \Delta \nu_{max}}{\hbar \omega} \notag \\
+			&= \frac{\pi^2}{2} \frac{\Delta \nu_{max}}{\omega_{rec}}
+	\end{align}
+	其中，$\omega_{rec} = E_{rec}/\hbar = \hbar {k_L}^2 / 2M$为反冲频率。
+	
+	其次，当驱动方式为相位调制时，且调制协议为改变镜面反射的位移$X(t) = \Delta x_{max} \cos(\omega t)$时，可以得到晶格势为，
+	\begin{equation}
+		V_{lat} = \frac{V_0}{2} \cos(2k_L \left[ x - \Delta x_{max} \cos(\omega t) \right])
+	\end{equation}
+	将上述公式带入力场公式可得，
+	\begin{equation}
+		F = M \omega^2 \Delta x_{max} \cos(\omega t)
+	\end{equation}
+	最后可以得到该调制方式的$K_0$,
+	\begin{align}
+		K_0 &= \frac{ M \omega^2 \Delta x_{max} d_L}{\hbar \omega} \notag \\
+			&= \frac{\pi^2}{2} \frac{\omega}{\omega_{rec}} \frac{\Delta x_{max}}{d_L}
+	\end{align}
+	 
+	第三，
+	\begin{equation}
+		\boldsymbol{F = F_1 + F_2}
+	\end{equation}
+	
+	$\boldsymbol{F_1} \propto \Delta \phi$ , $\boldsymbol{F_2} \propto \Delta \Omega \propto \Delta E_0$
+	
+	
+\end{document}
