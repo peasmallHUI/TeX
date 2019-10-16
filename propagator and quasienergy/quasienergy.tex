@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{ctex}
+\usepackage{mathdots}
+
+
+\title{Propagator and quasi-energy}
+\author{Xiao-Hui, HU}
+\date{\today}
+
+
+\begin{document}
+    \maketitle
+    First, we will review the one-dimensional lattice structure and its energy bands.
+    The Schrödinger equation is:
+    \begin{equation}
+        \hat{H} \phi_{q}^{(b)}(x)=E_{q}^{(b)} \phi_{q}^{(b)}(x) \quad \text { with } \quad \hat{H}=\frac{\hat{p}^{2}}{2 M}+V_{L}(x)
+    \end{equation}
+    where $V_{L}(x)=V_{0} \cos ^{2}\left(k_{L} x\right)$ is the lattice potential.
+    According to Bloch's theorem, the eigenstates of this Hamiltonian could be written as:
+    \begin{equation}
+        \phi_{q}^{(b)}(x)=e^{i q x / \hbar} u_{q}^{(b)}(x)
+    \end{equation}
+    And, we can use discrete Fourier sums to overwrite the potential and periodic function $u_{q}^{(b)}(x)$:
+    \begin{equation}
+        V_{L}(x)=\sum_{m} V_{m} e^{2 i k_{L} m x} \quad \text { and } \quad u_{q}^{(b)}(x)=\sum_{n} c_{n}^{(b, q)} e^{2 i k_{L} n x}
+    \end{equation}
+    In this case, the lattice potential is given by 
+    \begin{equation}
+        V_{L}(x)=\frac{1}{4} V_{0}\left(e^{2 i k_{L} x}+e^{-2 i k_{L} x}+2\right)
+    \end{equation}
+    Inserting the above Fourier sums into Schrödinger equation, we can obtain:
+    \begin{equation}
+        \left[-\frac{\hbar^{2}}{2 m} \frac{d^{2}}{dk^{2}}+V_L(x)\right] \sum_{n} C_{n}^{(b,q)} e^{i(q/\hbar + 2k_Ln)x}=E_q^{(b)}  \sum_{n} C_{n}^{(b,q)} e^{i(q/\hbar + 2k_Ln)x}
+    \end{equation}
+    then
+    \begin{equation}
+        \begin{aligned}
+            \left[\frac{\hbar^{2}}{2 m}(q/\hbar+2k_Ln)^{2}+\frac{1}{4} V_{0}\left(e^{2 i k_{L} x}+e^{-2 i k_{L} x}+2\right)\right] &\sum_{n} C_{n}^{(b,q)} e^{i(q/\hbar + 2k_Ln)x} \\
+            =  E_q^{(b)}  &\sum_{n} C_{n}^{(b,q)} e^{i(q/\hbar + 2k_Ln)x}
+        \end{aligned}
+    \end{equation}
+    We can express this equation in matrix form as:
+    \begin{equation}
+        \sum_{n^{\prime}} H_{n, n^{\prime}} c_{n^{\prime}}^{(b, q)}=E_{q}^{(b)} c_{n}^{(b, q)} \quad \text { with } 
+        \quad H_{n, n^{\prime}}=\left\{\begin{array}{ll}{\left(2 n+\frac{q}{\hbar k_{L}}\right)^{2} E_{r}+V_{0} / 2} & {\text { if }\left|n-n^{\prime}\right|=0} 
+        \\ {V_{0} / 4} & {\text { if }\left|n-n^{\prime}\right|=1} 
+        \\ {0} & {\text { otherwise. }}\end{array}\right.
+    \end{equation}
+    where, 
+    \begin{equation}
+        E_{r}=\frac{\hbar^{2} k_{L}^{2}}{2 M}
+    \end{equation}
+    The eigenenergies $E_{q}^{(b)}$ and eigenvectors $C_{n}^{(b, q)}$ can be determined by numerically diagonalizing the Hamiltonian $H_{n, n^{\prime}}$.
+    
+    
+    Second, in a time dependent system, we assume the Hamiltonian has the form:
+    \begin{equation}
+        H(t+T)=H(t)
+    \end{equation}
+    The period is $T$ .
+    Now, the system has time translation symmetry.Schrödinger equation can be
+    \begin{equation}
+        \left(H-i \partial_{t}\right)|\psi\rangle= 0
+    \end{equation}
+    From Floquet theory, the eigensolutions can be written
+    \begin{equation}
+        \psi(t)=e^{-i \epsilon t} u(t)
+    \end{equation}
+    where,
+    \begin{equation}
+        u(t+T)=u(t)
+    \end{equation}
+    It is a time periodic function, meets the eigenfunction
+    \begin{equation}
+        \left(H-i \partial_{t}\right)|u(t)\rangle=\epsilon|u(t)\rangle
+    \end{equation}
+    Eigenstates $|\psi(t)\rangle$ is the eigensolution of time evolution operator
+    \begin{equation}
+        U(T+t, t)|\psi(t)\rangle=|\psi(t+T)\rangle= e^{-i \mathcal{E} T}|\psi(t)\rangle
+    \end{equation}
+    where time evolution operator is
+    \begin{equation}
+        U(T+t, t) \equiv \hat{\operatorname{T}} \exp \left[-i \int_{t}^{T+t} H\left(t^{\prime}\right) d t^{\prime}\right]
+    \end{equation}
+    Similar to the quasi-momentum in the space periodic potential, $\epsilon$ is called quasi-energy here.
+
+    Quasi-energy of time-periodic system can be obtained by diagonalization propagator $U(t, 0)$.
+    Schrödinger equation is 
+    \begin{equation}
+        i \partial_t|\psi(t)\rangle = H|\psi(t)\rangle
+    \end{equation}
+    and we can get
+    \begin{equation}
+       i \frac{|\psi(t + dt)\rangle - |\psi(t - dt)\rangle}{2 \cdot dt} = H|\psi(t)\rangle 
+    \end{equation} 
+    then 
+    \begin{equation}
+        |\psi(t + dt)\rangle = |\psi(t - dt)\rangle + 2 \cdot i \cdot dt \cdot H |\psi(t)\rangle   \label{eq18}
+    \end{equation}
+    From initial state to time $T$, $|\psi \rangle$ derived from $|\psi(0)\rangle $ to $|\psi(t)\rangle$
+    \begin{equation}
+        |\psi(t)\rangle = e^{-i \epsilon T} |\psi(0)\rangle
+    \end{equation}
+    also
+    \begin{equation}
+        |\psi(t)\rangle = U(0+T, 0) |\psi(0)\rangle
+    \end{equation}
+    where $U(t)$ is the time evolution operator. So, we can figure out the quasi-energy by the above theory.
+
+    The following is concrete calculation process. The Hamiltonian is 
+    \begin{equation}
+        \hat{H}(t)=\frac{\hat{p}^{2}}{2 M}+V_{0} \cos ^{2}\left(k_{L} x\right)-F_{0} \sin (\omega t) \label{eq21}
+    \end{equation}
+    % 
+    We can express this equation in matrix form as
+    \begin{equation}
+        \quad H_{n, n^{\prime}}=\left\{\begin{array}{ll}{\left(2 n+\frac{q}{\hbar k_{L}}\right)^{2} E_{r}+V_{0} / 2 - F_{0} \sin (\omega t)} & {\text { if }\left|n-n^{\prime}\right|=0} 
+        \\ {V_{0} / 4} & {\text { if }\left|n-n^{\prime}\right|=1} 
+        \\ {0} & {\text { otherwise. }}\end{array}\right.
+    \end{equation}
+    Then, use the Eq\eqref{eq18} to derived the evolution operator.
+   
+    %另一种处理Hamiltonian的方式
+    
+    We can rewrite the Hamiltonian of Eq\eqref{eq21} by using identity $\sin (\omega t)=1 /(2 i)\left(e^{i \omega t}-e^{-i \omega t}\right)$ as following:
+    \begin{equation}
+        \hat{H}(t)=\sum_{m=-1}^{1} \hat{H}_{m} e^{i m \omega t}
+    \end{equation}
+    
+\end{document} 
