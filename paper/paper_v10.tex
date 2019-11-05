@@ -10,8 +10,8 @@
 %nofootinbib,
 %nobibnotes,
 %bibnotes,
- amsmath,amssymb,
- aps,
+amsmath,amssymb,
+aps,
 pra,
 %prb,
 %rmp,
@@ -93,25 +93,25 @@ floatfix,
 
 \section{\label{sec:level1}Introduction}
 
-Optical lattice is a pure and highly controllable platform in quantum field.
-It becomes more and more useful and one of the most platform to simulate quantum many-body system.%ref...
-Optical lattice is a artificial periodic structure.
-In this way the optical lattice can simulate the crystal structure in condensed matter physics. 
+Optical lattice is a clean and highly controllable platform in quantum field.
+It becomes one of the most popular platform to simulate quantum many-body system.\cite{jaksch1998cold, morsch2006dynamics, eckardt2009exploring}
+In fact, optical lattice is a kind of artificial periodic structure.
+In this way, the optical lattice can simulate the crystal structure in condensed matter physics. 
 Moreover, the properties of cold atoms in the optical lattice are very similar to those of electrons in the solid lattice, 
-so the cold atoms in the optical lattice can be used to simulate the complex crystal model.%ref...
-The optical lattice system can be used to study the related problems of quantum phase transition. 
-In 2002, Bloch et al. observed the superfluid Mott phase transition of boson in the Bose Einstein condensate of Rb in three-dimensional optical lattice.%ref
-The cold atoms in the optical lattice are not easily disturbed by the outside world, it has great development potential in time measurement.%ref
+so the cold atoms in the optical lattice can be used to simulate the complex crystal model.\cite{bloch2005ultracold, lewenstein2007ultracold, jordens2008mott}
+The optical lattice system can be used to study the quantum phase transition.
+In 2002, Bloch and others observed the superfluid Mott phase transition of boson in the Bose Einstein condensate of Rb in three-dimensional optical lattice.\cite{Greiner2002Quantum}
+The cold atoms has great development potential in time measurement as well, because the cold atoms in the optical lattice are not easily disturbed by the outside world. \cite{bloom2014optical, takamoto2005optical}
 
-Using time period to change the potential in the optical lattice, so the potential is both space period and time period.
-We can get the shaken optical lattice. Floquet theory can be used in the shaken optical lattice.%ref...
-Floquet theory is very important in quantum mechanics. It is widely used to study various physical phenomena, 
-such as the Chaos Quantum ratchet, the electronic transition in the semiconductor heterostructure, and dynamic tunneling.%ref...
-In this paper, we study the physical properties and modulation methods of the shaken optical lattice system after the introduction of time period.%ref...
+If we modulate the potential and make the potential is spatial period and temporal period, We can get the shaken optical lattice.\cite{eckardt2005superfluid, ha2015roton, kelecs2017effective}
+Floquet dynamics of a quantum system subject to periodic modulations of system parameters provide a powerful tool for engineering new quantum matter with exotic properties.\cite{zheng2014floquet, luo2018self}
+One of the recent theoretical advances is the introduction of Floquet topological insulators. It turns shaken optical lattice into a new platform for simulating topological phases.
+\cite{katan2013modulated, mei2014topological, grushin2014floquet, beri2011z}
+In this paper, we study the properties and modulation methods of the shaken optical lattice system.
 
 \section{Shaken Optical Lattice}
 The optical lattice is produced by a pair of laser beams as Fig.~\ref{fig1}.
-\begin{figure}[b]
+\begin{figure}
   \includegraphics[width = 6cm]{fig1.eps}
   \caption{\label{fig1} The optical lattice is produced by a pair of laser beams.The two laser beams propagating in the opposite direction form a standing wave field. 
   This force is periodic. The corresponding periodic optical potential well is obtained.}
@@ -121,42 +121,83 @@ The potential function of one-dimensional optical lattice is as follows:
   V=\frac{V_{0}}{2} \cos (2 k x)
   \label{eq1}
 \end{equation}
-However, when the two lasers are not exactly the same (for example, there is a difference between the frequency or phase), 
-the form of the potential function will change, and the standing wave field will also move, causing changes at the system level.
-This is the shaken optical lattice.
-Shaken optical lattice can also simulate quantum systems, but its advantage is time period term. 
-Many novel physical phenomena can be induced and deduced by spatiotemporal periodic. 
-This is reason we focus on shaken optical lattice.
+However, when the two lasers do not have exactly the same parameter(for example, there is a difference between two lasers on frequency or phase), 
+the form of the potential function will change. The standing wave will move(or shaking), so the system needs to be rederived.
+We call the system shaken optical lattice.
+Shaken optical lattice can simulate quantum systems, its advantage is that the potential is spatiotemporal period. 
+Many novel physical phenomena can be induced and deduced by spatiotemporal period in the quantum physics.
+Shaken optical lattice opens up new possibilities for studying in quantum matter.\cite{clark2018observation, weidner2018experimental, zhang2017manipulating, di2011finite}
 
-The processing of two laser beams is also called modulation mode. The potential function of the potential well will also change accordingly:
+Processing the parameters of two laser beams is also called modulation. The potential function will also change:
 \begin{equation}
   V=\frac{V_{0}}{2} \cos \left(2 k x+X_{0}(t)\right)
   \label{eq2}
 \end{equation}
 
-Now there will be time-dependent term in the potential function, which will affect the whole optical lattice system. 
+Now time-dependent term in the potential function which could affect the whole optical lattice system. 
 Then the Hamiltonian of the system becomes:
 \begin{equation}
   H=\frac{p^{2}}{2 M}+V_{l a t}(x, t)
   \label{eq3}
 \end{equation}
 
-$V_{l a t}(x, t)$ is not only a space period, but also related to time, for the convenience of later calculation. 
-We need to simplify that. After simplification, we can get:%ref...
+$V_{l a t}(x, t)$ is not only a spatial period, but also temporal period, for the convenience of later calculation. 
+We need to simplify the Eqs.~\ref{eq3}. After simplification, we can get\cite{arimondo2012kilohertz}:
 \begin{equation}
   H^{\prime}=\frac{\left[\widetilde{\boldsymbol{p}}+M \dot{X}_{0}\right]^{2}}{2 M}+V_{l a t}(x)-\frac{1}{2} M \dot{X}_{0}^{2}
   \label{eq4}
 \end{equation}
-There is a time-dependent vector potential in the shaken optical lattice from the above formula
+Time dependent vector potential is induced into the system of shaken optical lattice according to the above equation Eqs.~\ref{eq4}.
 \begin{equation}
   A=-M \dot{X}_{0}
   \label{eq5}
 \end{equation}
-This vector potential will get a force field.
+The vector potential can deduce a force field as the following:
 \begin{equation}
   \mathbf{F}=\frac{\partial \mathbf{A}}{\partial \mathrm{t}}=-\mathrm{M} \ddot{X}_{0}
   \label{eq6}
 \end{equation}
+
+\section{The Modulation}
+
+Different modulation methods will lead to different forms of potential functions\cite{sias2008observation, zenesini2010tunneling}.
+Here are some common modulation methods as follow.
+
+\subsection{Frequency Modulation}
+First, it is frequency modulation.
+When the frequency difference between two lasers is $\Delta v=\Delta v_{\max } \sin (\omega t)$.
+The actual potential field of the shaken optical lattice is
+\begin{equation}
+  V_{\text {lat }}=\frac{V_{0}}{2} \cos \left(2 k\left[x-\frac{\lambda \Delta v_{\max }}{2 \omega} \cos (\omega t)\right]\right)
+  \label{eq11}
+\end{equation}
+
+\begin{figure}[b]
+  \includegraphics[width = 6cm]{fig3.eps}
+  \caption{\label{fig3} Frequency modulation in thr shaken optical lattice.
+  The frequency difference between the two laser beams results in the shaken optical lattice.}
+\end{figure}
+
+
+\subsection{Phase Modulation}
+Phase modulation is another modulation method.
+The system consists of a standing wave formed by the interference of the reflected light of a laser beam reflected by a plane mirror with the initial incident light. 
+When the plane mirror is periodically shifted, it will change the phase of the reflected light,
+so as to achieve the purpose of periodic movement of the optical lattice.
+
+\begin{figure}[b]
+  \includegraphics[width = 6cm]{fig4.eps}
+  \caption{\label{fig4} The phase modulation. The phase difference between laser beam and its reflected wave emerge shaken optical lattice.}
+\end{figure}
+
+The displacement equation of plane mirror is set as $X(t)=\Delta x_{\max } \cos (\omega t)$, then the potential field in the optical lattice is
+\begin{equation}
+  V_{l a t}=\frac{V_{0}}{2} \cos \left(2 k\left[x-\Delta x_{\max } \cos (\omega t)\right]\right)
+\end{equation}
+
+% \subsection{Hybrid Modulation}
+
+\section{Dynamic Localization}
 
 In the case of tight binding approximation of single particle model, 
 the corresponding time-dependent Schrodinger equation is given by the so-called Houston State.
@@ -184,28 +225,8 @@ which is obtained by rescaling the normal transition matrix element through the 
 \end{equation}
 $K_{0}$ is a dimensionless parameter, which describes the intensity of modulation mode.
 
-\section{The Modulation}
-
-Different modulation methods will lead to different forms of potential functions, %ref...
-which will affect the relationship between intensity $K_{0}$. 
-The following describes the relationship between various vibration modes and strength $K_{0}$.
-\begin{figure}[b]
-  \includegraphics[width = 6cm]{fig3.eps}
-  \caption{\label{fig3} Two modulation methods of shaken optical lattice.
-  Schematic diagram of two different modulation modes, FIG. A is frequency modulation. 
-  The frequency difference between the two laser beams results in the deviation of the optical potential well; 
-  Figure B shows the phase modulation. The phase difference between laser beam and its reflected wave causes the vibration of optical lattice}
-\end{figure}
-
-\subsection{Frequency Modulation}
-First, it is frequency modulation.%ref...
-When the frequency difference between two lasers is $\Delta v=\Delta v_{\max } \sin (\omega t)$.
-The actual potential field of the shaken optical lattice is
-\begin{equation}
-  V_{\text {lat }}=\frac{V_{0}}{2} \cos \left(2 k\left[x-\frac{\lambda \Delta v_{\max }}{2 \omega} \cos (\omega t)\right]\right)
-  \label{eq11}
-\end{equation}
-
+% \subsection{Modulation}
+%frequency
 From the Eqs.~\ref{eq11}, we can get the modulation intensity
 \begin{equation}
   K_{0}=\frac{\mathrm{F}_{0} d}{\hbar \omega}=\frac{M d^{2} \omega \Delta v_{\max }}{\hbar \omega}=\frac{\pi^{2}}{2} \cdot \frac{\Delta v_{\max }}{\omega_{r e c}}
@@ -214,33 +235,16 @@ where $\omega_{r e c}=\frac{E_{r e c}}{\hbar}$ is recoil frequency.
 From the above formula, we can see the relationship between frequency modulation mode and modulation intensity. 
 The modulation intensity $K_{0}$ is directly proportional to the amplitude of frequency modulation and inversely proportional to the recoil frequency. 
 It is not related to the frequency of modulation. 
-
 Of course, the recoil frequency is related to the selected cold atoms. Once selected, it will not change.
 For example, $^{87} R b$ its recoil frequency is $3.24 k \times 2\pi Hz$. The relationship between modulation intensity and frequency modulation amplitude can be analyzed.
-%As Fig.~\ref{fig5}.
+As Fig.~\ref{fig5}.
 
 % \begin{figure}[b]
 %   \includegraphics[width = 6cm]{fig5.eps}
 %   \caption{\label{fig5} The relationship between frequency modulation amplitude and modulation intensity}
 % \end{figure}
 
-\subsection{Phase Modulation}
-
-Then, Modulation phase is another commonly used modulation method.%ref...
-The system consists of a standing wave formed by the interference of the reflected light of a laser beam reflected by a plane mirror with the initial incident light. 
-When the plane mirror is periodically shifted, it will change the phase of the reflected light, %ref...
-so as to achieve the purpose of periodic movement of the optical lattice.
-
-% \begin{figure}[b]
-%   \includegraphics[width = 6cm]{fig4.eps}
-%   \caption{\label{fig4} The phase modulation. The phase difference between laser beam and its reflected wave causes the vibration of optical lattice}
-% \end{figure}
-
-The displacement equation of plane mirror is set as $X(t)=\Delta x_{\max } \cos (\omega t)$, then the potential field in the optical lattice is
-\begin{equation}
-  V_{l a t}=\frac{V_{0}}{2} \cos \left(2 k\left[x-\Delta x_{\max } \cos (\omega t)\right]\right)
-\end{equation}
-
+%phase
 In this modulation mode, the modulation intensity is
 \begin{equation}
   K_{0}=\frac{\mathrm{F}_{0} d}{\hbar \omega}=\frac{M \omega^{2} \omega \Delta x_{\max } d}{\hbar \omega}=\frac{\pi^{2}}{2} \frac{\omega}{\omega_{r e c}} \frac{\Delta x_{\max }}{d}
@@ -248,10 +252,6 @@ In this modulation mode, the modulation intensity is
 The modulation intensity is related to modulation frequency, modulation amplitude, recoil frequency and lattice constant. 
 Similarly, the recoil frequency and lattice constant are related to the constructed shaken optical lattice system. 
 In this way, we analyze the relationship between modulation intensity and modulation frequency.
-
-% \subsection{Hybrid Modulation}
-
-% \section{Dynamic Localization}
 
 % \section{High-order Sideband generation}
 
@@ -285,8 +285,8 @@ In this way, we analyze the relationship between modulation intensity and modula
 % whether or not they are actually referenced in the text. This is appropriate
 % for the sample file to show the different styles of references, but authors
 % most likely will not want to use it.
-% \nocite{*}
+\nocite{*}
 
-% \bibliography{paper}% Produces the bibliography via BibTeX.
+\bibliography{paper}% Produces the bibliography via BibTeX.
 
 \end{document}
